@@ -21,8 +21,8 @@ export default function Topbar() {
                                 <span>Subscrições</span>
                                 <FiChevronDown />
                             </li>
-                        } arrow={false} position="bottom center" aria-describedby="popup-1">
-                            <div className="bg-white p-5 rounded shadow-md" id="popup-1">
+                        } arrow={false} position="bottom center" aria-describedby="popup-notificacoes">
+                            <div className="bg-white p-5 rounded shadow-md" id="popup-notificacoes">
                                 <h3>Notificações</h3>
                                 {/* Notificações */}
                             </div>
@@ -33,9 +33,9 @@ export default function Topbar() {
                                 <span>Cadastro</span>
                                 <FiChevronDown />
                             </li>
-                        } arrow={false} position="bottom center" aria-describedby="popup-2">
-                            <div className="bg-white p-5 rounded shadow-md" id="popup-2">
-                                <h3>Notificações</h3>
+                        } arrow={false} position="bottom center" aria-describedby="popup-cadastro">
+                            <div className="bg-white p-5 rounded shadow-md" id="popup-cadastro">
+                                <h3>Cadastro</h3>
                                 {/* Notificações */}
                             </div>
                         </Popup>
@@ -45,8 +45,8 @@ export default function Topbar() {
                                 <span>Configurações</span>
                                 <FiChevronDown />
                             </li>
-                        } arrow={false} position="bottom center" aria-describedby="popup-3">
-                            <div className="bg-white p-5 rounded shadow-md" id="popup-3">
+                        } arrow={false} position="bottom center" aria-describedby="popup-configuracoes">
+                            <div className="bg-white p-5 rounded shadow-md" id="popup-configuracoes">
                                 <ul className='flex gap-1 flex-col'>
                                     <li className='leading-10 hover:text-primary'>
                                         <Link href={"#"} className='outline-none'>Configuraçoões gerais</Link>

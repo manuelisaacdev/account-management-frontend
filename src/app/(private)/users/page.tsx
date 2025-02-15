@@ -9,13 +9,15 @@ export default function Users() {
         <section className='flex flex-col max-w-[1480px] mx-auto px-5 py-8'>
             <div className="flex justify-between items-center">
                 <div className="flex items-center gap-2">
-                    <Link href="#" className='text-3xl'>
+                    <Link href="/logout" className='text-3xl'>
                         <GoArrowLeft />
                     </Link>
                     <span className='text-2xl font-normal leading-10'>Utilizadores</span>
                 </div>
 
-                <Button>Criar Utilizador</Button>
+                <Link href={"/users/new"}>
+                    <Button>Criar Utilizador</Button>
+                </Link>
             </div>
 
             <div className="flex gap-10 items-center bg-white rounded-md p-5 mt-10">

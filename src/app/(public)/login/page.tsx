@@ -13,8 +13,12 @@ export default function Login() {
                 <TextField type='password' label='Senha' placeholder='Informe a sua senha...'/>
                 <p className='text-balance text-input-label font-normal'>Esqueceu a senha? <Link href={"#"} className='text-primary-light hover:underline'>Repor senha</Link></p>
                 <Link href={"/sign-up"} className='font-normal text-primary-light hover:underline'>Criar Conta</Link>
-                <LoadingButton>Iniciar sessão Admin</LoadingButton>
-                <LoadingButton>Iniciar sessão Cliente</LoadingButton>
+                <Link href={"/users"} className='block w-full'>
+                    <LoadingButton className='block w-full'>Iniciar sessão Admin</LoadingButton>
+                </Link>
+                <Link href={"/users/1"} className='block w-full'>
+                    <LoadingButton className='block w-full'>Iniciar sessão Cliente</LoadingButton>
+                </Link>
             </div>
         </main>
     )

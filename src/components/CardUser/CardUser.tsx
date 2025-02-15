@@ -1,10 +1,13 @@
 "use client";
 
-import Image from 'next/image'
 import Link from 'next/link';
-import React, { useState } from 'react'
-import { HiDotsVertical } from 'react-icons/hi'
+import Image from 'next/image'
 import Popup from 'reactjs-popup';
+import React, { useState } from 'react';
+
+import { HiDotsVertical } from 'react-icons/hi'
+
+import {IconButton} from '@/components';
 
 export default function CardUser() {
     const [openMenu, setOpenMenu] = useState<boolean>(false);
@@ -31,15 +34,17 @@ export default function CardUser() {
             </div>
             <div className='flex w-20 flex-shrink-0'>
                 <Popup open={openMenu} onClose={() => setOpenMenu(false)} onOpen={() => setOpenMenu(true)} trigger={
-                    <button className='flex justify-center items-center w-10 rounded-full h-10 hover:bg-gray-400/10'><HiDotsVertical /></button>
+                    <IconButton>
+                        <HiDotsVertical />
+                    </IconButton>
                 } arrow={false} position="bottom center" aria-describedby="popup-1">
                     <div className="bg-white p-5 rounded shadow-md" id="popup-1">
                         <ul className='flex flex-col'>
                             <li>
-                                <Link href={"#"} className='h-10 block px-3 py-2 text-nowrap hover:bg-primary-light/5 rounded-md'>Visualizar</Link>
+                                <Link href={`/users/${7508}`} className='h-10 block px-3 py-2 text-nowrap hover:bg-primary-light/5 rounded-md'>Visualizar</Link>
                             </li>
                             <li>
-                                <Link href={"#"} className='h-10 block px-3 py-2 text-nowrap hover:bg-primary-light/5 rounded-md'>Editar</Link>
+                                <Link href={`/users/${7508}/edit`} className='h-10 block px-3 py-2 text-nowrap hover:bg-primary-light/5 rounded-md'>Editar</Link>
                             </li>
                             <li>
                                 <button className='h-10 block px-3 py-2 text-nowrap hover:bg-primary-light/5 rounded-md'>Eliminar</button>
