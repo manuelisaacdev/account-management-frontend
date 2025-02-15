@@ -6,22 +6,19 @@ import { GoArrowLeft } from 'react-icons/go'
 
 import { usetUsers } from '@/hooks';
 import User from '@/interfaces/User';
+import Role from '@/interfaces/Role';
 import { Button } from '@/components';
 import CardUser from '@/components/CardUser/CardUser';
 import UserService from '@/services/UserService';
-import { useRouter } from 'next/navigation';
-import Role from '@/interfaces/Role';
 
 const userService = new UserService();
 
 export default function Users() {
-    const router = useRouter();
     const {users, session, setUsers} = usetUsers();
 
     function handleDelete(user:User) {
         userService.delete(user.id).then(() => {
             setUsers(prev => prev.filter(u => u.id !== user.id));
-            router.replace("/logout");
         }).catch(error => {
             console.error(error);
         });
@@ -37,11 +34,9 @@ export default function Users() {
                     <span className='text-2xl font-normal leading-10'>Utilizadores</span>
                 </div>
 
-                {session?.role === Role.ROOT && (
-                    <Link href={"/users/new"}>
-                        <Button>Criar Utilizador</Button>
-                    </Link>
-                )}
+                <Link href={"/users/new"}>
+                    <Button>Criar Utilizador</Button>
+                </Link>
             </div>
 
             <div className="flex gap-10 items-center bg-white rounded-md p-5 mt-10">

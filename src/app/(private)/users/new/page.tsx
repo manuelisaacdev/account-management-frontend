@@ -46,7 +46,7 @@ export default function NewUser() {
             <form onSubmit={handleSubmit(onSubmit)} className="flex gap-8 flex-col rounded-md w-full max-w-lg mt-10">
                 <TextField {...register("name")} message={errors.name?.message} type='text' label='Nome' placeholder='Informe o seu nome...'/> 
 
-                <Select label='Tipo de Usuário' defaultValue={Role.CLIENT}>
+                <Select {...register("role")} label='Tipo de Usuário' defaultValue={Role.CLIENT}>
                     <option value={Role.CLIENT}>Cliente</option>
                     {session?.role === Role.ROOT && (
                         <option value={Role.ADMIN}>Administrador</option>
