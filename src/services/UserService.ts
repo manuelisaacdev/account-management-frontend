@@ -18,8 +18,8 @@ export default class UserService extends AbstractService<User, Object, QueryUser
         return api.post(super.URL, userDTO);
     }
 
-    updateProfilePhoto(userId: string, formData: FormData) {
-        return api.put(`/profilePhoto/${userId}`, formData);
+    updateProfilePhoto(userId: number, formData: FormData) {
+        return api.patch(this.URL + `/profilePhoto/${userId}`, formData);
     }
     
 };

@@ -25,7 +25,7 @@ export function formatNumber(value: number) {
 }
 
 export function handleResource(filename?:string) {
-    return `${BASE_URL}/resources/images/${filename}`;
+    return filename ? `${BASE_URL}/resources/${filename}` : "/img/avatar_placeholder.png";
 }
 
 export function buildMaxDaysOfMonths(year:number) {
@@ -50,17 +50,14 @@ export function placeholderName(name:string) {
     return array.length > 1 ? `${array[0].at(0)}${array[1].at(0)}` : array[0].at(0);
 }
 
-export function validateVisibility(user: User, session: Session):boolean {
-    if (user.role === Role.CLIENT) {
+export function validateVisibility(user?: User, session?: Session):boolean {
+    if (user?.role === Role.CLIENT) {
         return true;
     }
-    
-    if (user.role === Role.ROOT) {
-        return false;
-    }
 
-    if ((user.role === Role.ADMIN && session.role === Role.ROOT) || 
-        (user.role === Role.ADMIN && user.id === session.userId)) {
+    if ((user?.role === Role.ADMIN && user.id === session?.userId) ||
+        (user?.role === Role.ADMIN && session?.role === Role.ROOT) || 
+        (user?.role === Role.ROOT && session?.role === Role.ROOT)) {
         return true;
     }
     

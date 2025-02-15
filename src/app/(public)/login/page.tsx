@@ -29,7 +29,7 @@ export default function Login() {
         setLoading(true);
         authenticationService.login(authenticationDTO).then(response => {
             const {accessToken, refreshToken, user: { id, name, role}} = response.data;
-            const redirect = role === Role.ROOT || Role.ADMIN ? "/users" : `/profile/${id}`;
+            const redirect = (role === Role.ROOT || role === Role.ADMIN) ? "/users" : `/profile/${id}`;
             toast.success(`${name}, O seu login foi efetuado.`);
             router.push(AuthorizationHandler.buildAuthorization({userId: id, role, accessToken, refreshToken, redirect: redirect}));
         }).catch(error => {
