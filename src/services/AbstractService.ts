@@ -12,7 +12,7 @@ export default class AbstractService<T, DTO, Q> {
         return api.get<T[]>(this.url + this.handleParameters(params));
     }
     
-    findById(entityId: string) {
+    findById(entityId: number) {
         return api.get<T>(`${this.url}/${entityId}`);
     }
     
@@ -24,11 +24,11 @@ export default class AbstractService<T, DTO, Q> {
         return api.get<number>(`${this.url}/count${this.handleParameters(params)}`);
     }
     
-    update(entityId: string, updateDTO: DTO) {
+    update(entityId: number, updateDTO: DTO) {
         return api.put<T>(`${this.url}/${entityId}`, updateDTO);
     }
     
-    delete(entityId: string) {
+    delete(entityId: number) {
         return api.delete<void>(`${this.url}/${entityId}`);
     }
 

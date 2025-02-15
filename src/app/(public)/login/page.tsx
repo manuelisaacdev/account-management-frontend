@@ -33,7 +33,7 @@ export default function Login() {
             toast.success(`${name}, O seu login foi efetuado.`);
             router.push(AuthorizationHandler.buildAuthorization({userId: id, role, accessToken, refreshToken, redirect: redirect}));
         }).catch(error => {
-            toast.success(error.response.data.message);
+            toast.error(error.response.data.message);
         }).finally(() => setLoading(false));
     }
 

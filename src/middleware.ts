@@ -5,15 +5,14 @@ export default function middleware(request: NextRequest) {
     switch(request.nextUrl.pathname) {
         // case "/login": return AuthorizationHandler.handleLogin(request);
         case "/logout": return AuthorizationHandler.handleLogout(request);
-        // case "/authorization": return AuthorizationHandler.handleAuthorization(request);
-        // default: return AuthorizationHandler.handleAuthorized(request);
+        case "/authorization": return AuthorizationHandler.handleAuthorization(request);
+        default: return AuthorizationHandler.handleAuthorized(request);
     }
 }
 
 export const config = {
     matcher: [
-        "/", "/login", "/logout", "/authorization", 
-        "/musics", "/clips", "/albums", "/playlists", 
-        "/events", "/musical-genres", "/settings/:path*",
+        "/", "/logout", "/authorization", 
+        "/users/:path*", "/profile/:path*",
     ],
 };

@@ -39,7 +39,7 @@ export default function SignUp() {
                 <TextField {...register("phone")} message={errors.phone?.message} type='number' label='Número de telemóvel' placeholder='Informe o seu telefone...'/>   
                 <TextField {...register("email")} message={errors.email?.message} type='email' label='Email' placeholder='Informe o seu nome...'/>   
                 <TextField {...register("password")} message={errors.password?.message} type='password' label='Senha' placeholder='Informe a sua senha...'/>
-                <LoadingButton>Criar Conta</LoadingButton>
+                <LoadingButton loading={loading}>Criar Conta</LoadingButton>
             </form>
         </main>
     )

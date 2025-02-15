@@ -34,7 +34,7 @@ export default function Topbar() {
                                 <FiChevronDown />
                             </li>
                         } arrow={false} position="bottom center" aria-describedby="popup-cadastro">
-                            <div className="bg-white p-5 rounded shadow-md" id="popup-cadastro">
+                            <div className="bg-white p-5 rounded shadow-md">
                                 <h3>Cadastro</h3>
                                 {/* Notificações */}
                             </div>
@@ -46,7 +46,7 @@ export default function Topbar() {
                                 <FiChevronDown />
                             </li>
                         } arrow={false} position="bottom center" aria-describedby="popup-configuracoes">
-                            <div className="bg-white p-5 rounded shadow-md" id="popup-configuracoes">
+                            <div className="bg-white p-5 rounded shadow-md">
                                 <ul className='flex gap-1 flex-col'>
                                     <li className='leading-10 hover:text-primary'>
                                         <Link href={"#"} className='outline-none'>Configuraçoões gerais</Link>
