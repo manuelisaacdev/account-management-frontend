@@ -1,4 +1,6 @@
+import Role from "./Role";
 
 export default interface Session {
-    userId?: number,
+    role: Role,
+    userId: number,
 }

@@ -41,10 +41,10 @@ export default function CardUser() {
                     <div className="bg-white p-5 rounded shadow-md" id="popup-1">
                         <ul className='flex flex-col'>
                             <li>
-                                <Link href={`/users/${7508}`} className='h-10 block px-3 py-2 text-nowrap hover:bg-primary-light/5 rounded-md'>Visualizar</Link>
+                                <Link href={`/profile/${7508}`} className='h-10 block px-3 py-2 text-nowrap hover:bg-primary-light/5 rounded-md'>Visualizar</Link>
                             </li>
                             <li>
-                                <Link href={`/users/${7508}/edit`} className='h-10 block px-3 py-2 text-nowrap hover:bg-primary-light/5 rounded-md'>Editar</Link>
+                                <Link href={`/profile/${7508}/edit`} className='h-10 block px-3 py-2 text-nowrap hover:bg-primary-light/5 rounded-md'>Editar</Link>
                             </li>
                             <li>
                                 <button className='h-10 block px-3 py-2 text-nowrap hover:bg-primary-light/5 rounded-md'>Eliminar</button>

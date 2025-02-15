@@ -1,12 +1,13 @@
 import { NextRequest, NextResponse } from "next/server";
 
+import Role from "@/interfaces/Role";
 import Session from "@/interfaces/Session";
 import CryptoHandler from "./CryptoHandler";
 
 export default class AuthorizationHandler {
     
-    static buildAuthorization({redirect, userId, accessToken, refreshToken}:{redirect:string, userId: string, accessToken:string, refreshToken:string}) {
-        return `/authorization?redirect=${redirect}&userId=${userId}&accessToken=${accessToken}&refreshToken=${refreshToken}`;
+    static buildAuthorization({redirect, userId, role, accessToken, refreshToken}:{redirect:string, userId: number, role:Role, accessToken:string, refreshToken:string}) {
+        return `/authorization?redirect=${redirect}&userId=${userId}&role=${role}&accessToken=${accessToken}&refreshToken=${refreshToken}`;
     }
 
     static isAuthorized(request: NextRequest): boolean {
@@ -24,6 +25,7 @@ export default class AuthorizationHandler {
         try {
             const searchParams = new URLSearchParams(request.nextUrl.search);
             if( !searchParams.has("userId") || 
+                !searchParams.has("role") || 
                 !searchParams.has("redirect") || 
                 !searchParams.has("accessToken") || 
                 !searchParams.has("refreshToken")) {
@@ -31,6 +33,7 @@ export default class AuthorizationHandler {
             }
 
             const session: Session = {
+                role: searchParams.get("role") as Role,
                 userId: parseInt(searchParams.get("userId") as string),
             }
 

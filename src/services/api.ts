@@ -8,12 +8,12 @@ const api = axios.create({
 
 api.interceptors.request.use(async function (config) {
     try {
-        const {data: {accessToken}} = await axios.get<{accessToken:string, refreshToken:string}>("/api/token");
-        config.headers.Authorization = `Bearer ${accessToken}`;
+        // const {data: {accessToken}} = await axios.get<{accessToken:string, refreshToken:string}>("/api/token");
+        // config.headers.Authorization = `Bearer ${accessToken}`;
+        return config;
     } catch (error) {
-        console.error("interceptors: ", error);
+        return config;
     }
-    return config;
 });
 
 export default api;
